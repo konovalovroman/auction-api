@@ -1,0 +1,33 @@
+{
+  "name": "auction-api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm run migration:run && node ./src/main.js",
+    "dev": "node --watch ./src/main.js",
+    "lint": "eslint ./src",
+    "migration:generate": "drizzle-kit generate:mysql",
+    "migration:run": "drizzle-kit push:mysql",
+    "test:creator": "node ./test/creator.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.28",
+    "drizzle-kit": "^0.20.14",
+    "eslint": "^8.57.0",
+    "pino": "^8.19.0",
+    "pino-pretty": "^10.3.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.2",
+    "fastify": "^4.26.2",
+    "mysql2": "^3.9.2",
+    "tap": "^18.7.1"
+  }
+}
