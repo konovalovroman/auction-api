@@ -3,8 +3,8 @@ import { getEnvVariable } from './src/utils/config.js';
 /** @type { import("drizzle-kit").Config } */
 export default {
   schema: './src/database/schemas',
-  out: './migrations',
-  driver: 'mysql2',
+  out: './src/database/migrations',
+  driver: 'pg',
   dbCredentials: {
     host: getEnvVariable('DB_HOST'),
     user: getEnvVariable('DB_USER'),

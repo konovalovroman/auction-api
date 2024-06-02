@@ -1,7 +1,7 @@
-import { int, mysqlTable, timestamp, varchar } from 'drizzle-orm/mysql-core';
+import { serial, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core';
 
-export const usersSchema = mysqlTable('users', {
-  id: int('id').primaryKey().autoincrement(),
+export const usersSchema = pgTable('users', {
+  id: serial('id').primaryKey(),
   username: varchar('username', { length: 40 }).notNull().unique(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });

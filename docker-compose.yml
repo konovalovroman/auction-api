@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  auction-api:
+    container_name: auction-api
+    build: .
+    ports:
+      - '${PORT}:${PORT}'
+    env_file:
+      - ./.env
+    depends_on:
+      - auction-db
+  auction-db:
+    container_name: auction-db
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - auction-db-data:/var/lib/postgresql/data
+volumes:
+  auction-db-data: {}

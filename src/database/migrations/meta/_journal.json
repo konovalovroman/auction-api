@@ -1,12 +1,12 @@
 {
   "version": "5",
-  "dialect": "mysql",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1710958044487,
-      "tag": "0000_mature_krista_starr",
+      "when": 1717243997746,
+      "tag": "0000_cold_sersi",
       "breakpoints": true
     }
   ]

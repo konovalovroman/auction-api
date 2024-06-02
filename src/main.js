@@ -7,6 +7,7 @@ function main() {
     const app = buildServer();
     
     app.listen({
+      host: '0.0.0.0',
       port: Number(getEnvVariable('PORT')),
     });
   } catch (err) {

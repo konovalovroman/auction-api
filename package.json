@@ -5,12 +5,11 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "start": "npm run migration:run && node ./src/main.js",
+    "start": "node ./src/main.js",
     "dev": "node --watch ./src/main.js",
     "lint": "eslint ./src",
-    "migration:generate": "drizzle-kit generate:mysql",
-    "migration:run": "drizzle-kit push:mysql",
-    "test:creator": "node ./test/creator.js"
+    "migration:generate": "drizzle-kit generate:pg",
+    "migration:run": "drizzle-kit push:pg"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +26,7 @@
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.2",
     "fastify": "^4.26.2",
-    "mysql2": "^3.9.2",
+    "pg": "^8.11.5",
     "tap": "^18.7.1"
   }
 }
