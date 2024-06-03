@@ -9,11 +9,12 @@ async function createItem(data) {
 
     if (data.auctionStartDate > data.auctionEndDate) return null;
 
-    const insertItemResult = await db
+    const insertedItem = await db
       .insert(itemsSchema)
-      .values(data);
+      .values(data)
+      .returning();
     
-    return { id: insertItemResult[0].insertId };
+    return { result: insertedItem };
   } catch (err) {
     logger.warn(err.message);
     return null;

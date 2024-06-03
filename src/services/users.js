@@ -4,11 +4,12 @@ import { usersSchema } from '../database/schemas/users.js';
 
 async function createUser(data) {
   try {
-    const insertUserResult = await db
+    const insertedUser = await db
       .insert(usersSchema)
-      .values(data);
+      .values(data)
+      .returning();
 
-    return { id: insertUserResult[0].insertId };
+    return { result: insertedUser };
   } catch(err) {
     logger.warn(err.message);
     return null;

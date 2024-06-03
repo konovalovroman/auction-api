@@ -19,17 +19,18 @@ async function createBid(data) {
 
       if (!item || item.price >= data.amount) return await tx.rollback();
 
-      const [insertBidResult] = await Promise.all([
+      const [insertedBid] = await Promise.all([
         tx
           .insert(bidsSchema)
-          .values(data),
+          .values(data)
+          .returning(),
         tx
           .update(itemsSchema)
           .set({ price: data.amount })
           .where(eq(itemsSchema.id, item.id)),
       ]);
 
-      return { id: insertBidResult[0].insertId };
+      return { result: insertedBid };
     });
     return bid;
   } catch (err) {
